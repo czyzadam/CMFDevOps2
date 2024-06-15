@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  default
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'DevopsAdamMan'
+    subscriptionId: '4bfade5e-64eb-4d29-ba2e-933a6612bd5c'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'Azure-CMF-core-network'
+    location: 'Poland Central'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/czyzadam/CMFDevOps2/main/azuredeploy.json'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployNetwork'
