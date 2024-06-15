@@ -8,7 +8,7 @@
         }
     },
     "variables": {
-        "linked-template-storage": "https://raw.githubusercontent.com/neilpeterson/arm-deployment-demo/master/linked-tempate/artifacts/storage.json"
+        "linked-template-storage": "https://raw.githubusercontent.com/czyzadam/CMFDevOps2/main/ARM-Storage/ARM-CMFStorage.json"
         },
     "resources": [
         {
