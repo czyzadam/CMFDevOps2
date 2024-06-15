@@ -21,6 +21,7 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: '10-CMF-ResourceGroup\createrg.json'
     deploymentMode: 'Incremental'
+    deploymentName: 'RG Creation'
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
