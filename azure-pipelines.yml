@@ -19,6 +19,6 @@ steps:
     resourceGroupName: 'Azure-CMF-core-network'
     location: 'Poland Central'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/czyzadam/CMFDevOps2/main/ARM-VNET/ARM-VNET-CMF.json'
+    csmFileLink: 'https://raw.githubusercontent.com/czyzadam/CMFDevOps2/main/azuredeploy.json'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployNetwork'
