@@ -20,6 +20,5 @@ steps:
     location: 'Poland Central'
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/czyzadam/CMFDevOps2/main/ARM-VNET/ARM-VNET-CMF.json'
-    overrideParameters: '-projectName CMF'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployNetwork'
