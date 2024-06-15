@@ -19,7 +19,7 @@ steps:
     resourceGroupName: 'Azure-CMF-core-network'
     location: 'Poland Central'
     templateLocation: 'Linked artifact'
-    csmFile: '10-CMF-ResourceGroup/createrg.json'
+    csmFile: '10-CMF-ResourceGroup\createrg.json'
     deploymentMode: 'Incremental'
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
