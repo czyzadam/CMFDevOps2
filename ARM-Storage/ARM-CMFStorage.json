@@ -103,22 +103,6 @@
             }
         },
         {
-            "type": "Microsoft.Storage/storageAccounts/privateEndpointConnections",
-            "apiVersion": "2023-04-01",
-            "name": "[concat(parameters('storageAccounts_cmfmigrationstorage_name'), '/', parameters('storageAccounts_cmfmigrationstorage_name'), '.b176f7db-cdd3-4f04-b99b-5e88770d99de')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cmfmigrationstorage_name'))]"
-            ],
-            "properties": {
-                "privateEndpoint": {},
-                "privateLinkServiceConnectionState": {
-                    "status": "Approved",
-                    "description": "Auto-Approved",
-                    "actionRequired": "None"
-                }
-            }
-        },
-        {
             "type": "Microsoft.Storage/storageAccounts/queueServices",
             "apiVersion": "2023-04-01",
             "name": "[concat(parameters('storageAccounts_cmfmigrationstorage_name'), '/default')]",
