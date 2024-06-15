@@ -10,14 +10,15 @@ pool:
   default
 
 steps:
-
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'DevopsAdamMan'
-    scriptType: 'pscore'
-    scriptLocation: 'scriptPath'
-    scriptPath: '10-CMF-ResourceGroup/createrg.ps1'
-
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      New-AzResourceGroup `
+        -Name Azure-CMF-core-network `
+        -Location "Poland Central"
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
