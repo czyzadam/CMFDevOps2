@@ -120,8 +120,6 @@
             }
         },
         {
-            {
-            {
             "name": "storage",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2019-10-01",
@@ -131,9 +129,6 @@
                     "uri": "[variables('linked-template-storage')]",
                     "contentVersion": "1.0.0.0"
                 },
-               
-            }
-        },
             }
         }
     ]
