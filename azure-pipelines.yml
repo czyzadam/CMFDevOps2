@@ -11,18 +11,12 @@ pool:
 
 steps:
 
-- task: AzureResourceManagerTemplateDeployment@3
+- task: AzureCLI@2
   inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'DevopsAdamMan'
-    subscriptionId: '4bfade5e-64eb-4d29-ba2e-933a6612bd5c'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'Azure-CMF-core-network'
-    location: 'Poland Central'
-    templateLocation: 'Linked artifact'
-    csmFile: '10-CMF-ResourceGroup/createrg.ps1'
-    deploymentMode: 'Incremental'
-    deploymentName: 'CMF Resource Group'
+    azureSubscription: 'DevopsAdamMan'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '10-CMF-ResourceGroup/createrg.ps1'
 
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
