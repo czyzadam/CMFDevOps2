@@ -9,4 +9,4 @@ New-AzResourceGroup `
 # -Name devenvironment `
 #  -ResourceGroupName Azure-CMF-core-network `
 #  -TemplateFile $templateFile `
-#  -TemplateParameterFile $parameterFile
+#  -TemplateParameterFile $parameterFiles

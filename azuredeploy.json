@@ -7,7 +7,9 @@
             "type": "String"
         }
     },
-    "variables": {},
+    "variables": {
+        "linked-template-storage": "https://raw.githubusercontent.com/neilpeterson/arm-deployment-demo/master/linked-tempate/artifacts/storage.json"
+        },
     "resources": [
         {
             "type": "Microsoft.Network/virtualNetworks",
@@ -115,6 +117,23 @@
                 "delegations": [],
                 "privateEndpointNetworkPolicies": "Disabled",
                 "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+        },
+        {
+            {
+            {
+            "name": "storage",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('linked-template-storage')]",
+                    "contentVersion": "1.0.0.0"
+                },
+               
+            }
+        },
             }
         }
     ]
