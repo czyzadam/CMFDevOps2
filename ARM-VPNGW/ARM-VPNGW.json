@@ -1,0 +1,89 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String"
+        },
+        "gatewayType": {
+            "defaultValue": "Vpn",
+            "allowedValues": [
+                "Vpn",
+                "ExpressRoute"
+            ],
+            "type": "String"
+        },
+        "sku": {
+            "type": "String"
+        },
+        "vpnGatewayGeneration": {
+            "type": "String"
+        },
+        "vpnType": {
+            "defaultValue": "RouteBased",
+            "allowedValues": [
+                "RouteBased",
+                "PolicyBased"
+            ],
+            "type": "String"
+        },
+        "subnetId": {
+            "type": "String"
+        },
+        "newPublicIpAddressName": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworkGateways",
+            "apiVersion": "2023-02-01",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/publicIPAddresses/', parameters('newPublicIpAddressName'))]"
+            ],
+            "tags": {},
+            "properties": {
+                "gatewayType": "[parameters('gatewayType')]",
+                "ipConfigurations": [
+                    {
+                        "name": "default",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[parameters('subnetId')]"
+                            },
+                            "publicIpAddress": {
+                                "id": "[resourceId('Azure-CMF-core-network', 'Microsoft.Network/publicIPAddresses', parameters('newPublicIpAddressName'))]"
+                            }
+                        }
+                    }
+                ],
+                "vpnType": "[parameters('vpnType')]",
+                "vpnGatewayGeneration": "[parameters('vpnGatewayGeneration')]",
+                "sku": {
+                    "name": "[parameters('sku')]",
+                    "tier": "[parameters('sku')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('newPublicIpAddressName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "zones": [],
+            "properties": {
+                "publicIPAllocationMethod": "Static"
+            }
+        }
+    ]
+}

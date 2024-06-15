@@ -1,5 +1,5 @@
-$templateFile = "C:\4.Projects\CMF_Devops\azuredeploy.json"
-$parameterFile="C:\4.Projects\CMF_Devops\azuredeploy.parameters.ada.json"
+$templateFile = "C:\4.Projects\CMF_Devops\ARM-VNET\ARM-VNET-CMF.json"
+#$parameterFile="C:\4.Projects\CMF_Devops\azuredeploy.parameters.ada.json"
 
 New-AzResourceGroup `
   -Name Azure-CMF-core-network `
@@ -9,4 +9,5 @@ New-AzResourceGroupDeployment `
   -Name devenvironment `
   -ResourceGroupName Azure-CMF-core-network `
   -TemplateFile $templateFile `
-  -TemplateParameterFile $parameterFile
+  -Verbose
+  

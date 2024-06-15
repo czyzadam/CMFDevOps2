@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vaults_CMF_Vault_name": {
+            "defaultValue": "CMF-Vault",
+            "type": "String"
+        },
+        "virtualnetworks_azure_cmf_vnet_core_externalid": {
+            "defaultValue": "/subscriptions/4bfade5e-64eb-4d29-ba2e-933a6612bd5c/resourceGroups/azure-cmf-core-network/providers/microsoft.network/virtualnetworks/azure-cmf-vnet-core",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "apiVersion": "2023-07-01",
+            "name": "[parameters('vaults_CMF_Vault_name')]",
+            "location": "polandcentral",
+            "properties": {
+                "sku": {
+                    "family": "A",
+                    "name": "Standard"
+                },
+                "tenantId": "6a74e396-c946-4654-ab7e-5f120bdac760",
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "defaultAction": "Deny",
+                    "ipRules": [],
+                    "virtualNetworkRules": [
+                        {
+                            "id": "[concat(parameters('virtualnetworks_azure_cmf_vnet_core_externalid'), '/subnets/azure_core_vnet')]",
+                            "ignoreMissingVnetServiceEndpoint": false
+                        }
+                    ]
+                },
+                "accessPolicies": [],
+                "enabledForDeployment": false,
+                "enabledForDiskEncryption": false,
+                "enabledForTemplateDeployment": false,
+                "enableSoftDelete": true,
+                "softDeleteRetentionInDays": 90,
+                "enableRbacAuthorization": true,
+                "vaultUri": "https://cmf-vault.vault.azure.net/",
+                "provisioningState": "Succeeded",
+                "publicNetworkAccess": "Enabled"
+            }
+        }
+    ]
+}

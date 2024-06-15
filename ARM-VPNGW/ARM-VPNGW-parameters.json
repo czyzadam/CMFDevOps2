@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "Azure-CMF-vnet-GW"
+        },
+        "location": {
+            "value": "polandcentral"
+        },
+        "gatewayType": {
+            "value": "Vpn"
+        },
+        "sku": {
+            "value": "VpnGw2"
+        },
+        "vpnGatewayGeneration": {
+            "value": "Generation2"
+        },
+        "vpnType": {
+            "value": "RouteBased"
+        },
+        "subnetId": {
+            "value": "/subscriptions/4bfade5e-64eb-4d29-ba2e-933a6612bd5c/resourceGroups/Azure-CMF-core-network/providers/Microsoft.Network/virtualNetworks/Azure-CMF-vnet-core/subnets/GatewaySubnet"
+        },
+        "newPublicIpAddressName": {
+            "value": "Azure-CMF-vnet-GWpIP"
+        }
+    }
+}
