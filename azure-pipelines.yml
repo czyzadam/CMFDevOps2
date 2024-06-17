@@ -10,18 +10,7 @@ pool:
   default
 
 steps:
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'DevopsAdamMan'
-    subscriptionId: '4bfade5e-64eb-4d29-ba2e-933a6612bd5c'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'Azure-CMF-core-network'
-    location: 'Poland Central'
-    templateLocation: 'Linked artifact'
-    csmFile: '10-CMF-ResourceGroup\createrg.json'
-    deploymentMode: 'Incremental'
-    deploymentName: 'RG Creation'
+
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
